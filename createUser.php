@@ -81,6 +81,11 @@ if ($key == '1453' && $_SERVER['REQUEST_METHOD'] == 'POST'){
             $data['mail'] = $mail->ErrorInfo;
         }
 
+        //Oluşturulan Kullanıcının Tokeni
+        $db->where("id",$id);
+        $userSelected = $db->getOne("users");
+        $results['token'] = $userSelected['userToken'];
+
         $results['data']=$id;
         $results['result']=1;
     }else{
