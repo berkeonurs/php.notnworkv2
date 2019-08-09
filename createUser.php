@@ -73,6 +73,17 @@ if ($key == '1453' && $_SERVER['REQUEST_METHOD'] == 'POST'){
         $userSelected = $db->getOne("users");
         $results['token'] = $userSelected['userToken'];
 
+        //UserProgress Coin Hediyesi
+        $dataProgress = [
+            "userId" => $id,
+            "progressType" => "new_user",
+            "progressId" => 1,
+            "coin" => 10,
+            "money" => 0
+        ];
+        $db->insert('usersProgress',$dataProgress);
+
+
         $results['data']=$id;
         $results['result']=1;
         }
