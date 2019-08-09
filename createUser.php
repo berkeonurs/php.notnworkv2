@@ -1,6 +1,5 @@
 <?php
 require_once 'config.php';
-include "lib/class.phpmailer.php";
 
 $key= filter_input(INPUT_POST, 'key');
 $which = filter_input(INPUT_POST, 'which');
@@ -18,7 +17,7 @@ if ($key == '1453' && $_SERVER['REQUEST_METHOD'] == 'POST'){
     unset($data['which']);
 
     $data['userPass'] = md5($data['userPass']);
-    $data['userToken'] = md5(base64_encode(rand(0,9999999999999)+rand(0,99999)));
+    $data['userToken'] = md5(base64_encode(rand(0,9999999999999)+rand(0,99999)+$data['userName']));
     $userMail = $data['userMail'];
     $mailCheckLast = explode("@",$userMail);
     $mailCheck = end($mailCheckLast);
@@ -31,6 +30,13 @@ if ($key == '1453' && $_SERVER['REQUEST_METHOD'] == 'POST'){
         "6"=>"ogr.mersin.edu.tr",
         "7"=>"ogr.mehmetakif.edu.tr"];
     if (in_array($mailCheck,$mailList)){
+        $db->where("userMail",$data['userMail']);
+        $mailSelected = $db->getOne("users");
+        if ($mailSelected['userMail'] == $data['userMail']){
+            $results['result'] = 305; // Account Already Exists
+        }else{
+
+
         // Users Tablosuna Insert
         $id = $db->insert ('users', $data);
 
@@ -59,27 +65,8 @@ if ($key == '1453' && $_SERVER['REQUEST_METHOD'] == 'POST'){
         // Mail Onay Tablosuna insert
         $db->insert('usersMailSuccess',$dataMail);
 
-        $mail = new PHPMailer();
-        $mail->IsSMTP();
-        $mail->SMTPAuth = true;
-        $mail->SMTPDebug  = 1;
-        $mail->Host = 'srvc75.turhost.com';
-        $mail->Port = 465;
-        $mail->SMTPSecure = 'ssl';
-        $mail->Username = 'info@notnwork.com';
-        $mail->Password = 'lmG3$S^N],J]';
-        $mail->SetFrom($mail->Username, 'notnwork');
-        $mail->AddAddress($data['userMail'],$data['userName']);
-        $mail->CharSet = 'UTF-8';
-        $mail->Subject = 'notnwork Öğrenci Mail Onay';
-        $content = '<div style="background: #eee; padding: 10px; font-size: 14px"><h3>Merhaba '.$data['userName'].'</h3><p>Mailini onaylamak için lütfen linke tıkla!</p><p>Onay Linki: <a href="https://notnwork.com/onay.php?eposta='.$id.'&kod='.$mailToken.'" target="_blank">Mailini onaylamak için buraya tıkla!</a></p><p>Eğer link çalışmıyorsa aşağıdaki bağlantıyı adres çubuğuna yapıştır!</p><p>https://notnwork.com/onay.php?eposta='.$id.'&kod='.$mailToken.'</p></div>';
-        $mail->MsgHTML($content);
-        if($mail->Send()) {
-            $data['mail']="gönderildi";
-        } else {
-            // bir sorun var, sorunu ekrana bastıralım
-            $data['mail'] = $mail->ErrorInfo;
-        }
+        sendMail($data['userMail'],$data['userName'],$id,$mailToken);
+
 
         //Oluşturulan Kullanıcının Tokeni
         $db->where("id",$id);
@@ -88,6 +75,7 @@ if ($key == '1453' && $_SERVER['REQUEST_METHOD'] == 'POST'){
 
         $results['data']=$id;
         $results['result']=1;
+        }
     }else{
         $results['result'] = 300; //Not Student Mail
     }
