@@ -21,6 +21,10 @@ if ($key == '1453' && $_SERVER['REQUEST_METHOD'] == 'POST'){
             $results['result'] = 1;
             $results['token'] = $userSelected['userToken'];
             $results['active'] = $userSelected['userActive'];
+            $loginDate['userLoginDate'] = date('Y.m.d');
+            $db->where("userToken",$userSelected['userToken']);
+            $db->update('users',$loginDate);
+
         }
     }else{
         $results['result'] = 404; // Unknown User
