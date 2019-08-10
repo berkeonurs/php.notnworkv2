@@ -63,7 +63,7 @@ if ($key == '1453' && $_SERVER['REQUEST_METHOD'] == 'POST'){
         $dataMail['mailToken'] = $mailToken;
         $dataMail['usersId'] = $id;
         // Mail Onay Tablosuna insert
-        $db->insert('usersMailSuccess',$dataMail);
+        $db->insert('usersmailsuccess',$dataMail);
 
         sendMail($data['userMail'],$data['userName'],$id,$mailToken);
 
@@ -81,7 +81,7 @@ if ($key == '1453' && $_SERVER['REQUEST_METHOD'] == 'POST'){
             "coin" => 10,
             "money" => 0
         ];
-        $db->insert('usersProgress',$dataProgress);
+        $db->insert('usersprogress',$dataProgress);
 
 
         $results['data']=$id;

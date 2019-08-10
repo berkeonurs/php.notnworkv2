@@ -1,6 +1,7 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
+//error_reporting(E_ALL);
+//ini_set('display_errors', 'On');
+header('Access-Control-Allow-Origin: *');
 
 require_once 'lib/MysqliDb.php';
 include "lib/class.phpmailer.php";
