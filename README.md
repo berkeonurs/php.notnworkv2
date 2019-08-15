@@ -11,6 +11,12 @@ notnwork WebService.
 
 [Get User Block List](https://github.com/berkeonurs/notnworkv2#get-user-block-list)
 
+[Follow User](https://github.com/berkeonurs/notnworkv2#follow-user)
+
+[UnFollow User](https://github.com/berkeonurs/notnworkv2#unfollow-user)
+
+[Get User Follow List](https://github.com/berkeonurs/notnworkv2#get-user-follow-list)
+
 [Add Notes](https://github.com/berkeonurs/notnworkv2#add-notes)
 
 [Get Home Notes](https://github.com/berkeonurs/notnworkv2#get-home-notes)
@@ -51,6 +57,24 @@ notnwork WebService.
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | getUserBlockList.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb} | {'result':0  => Key or Token Failed} | Get User Block List. |
+
+## Follow User
+ 
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| usersFollow.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'userFollowed':"41"=>takip edilen kullanıcının idsi"} | {'result':1 => User Followed Successfully, 'result':0  => Key or Token Failed} | Follow User. |
+
+## UnFollow User
+ 
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| usersUnFollow.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'userFollowed':"41"=>takipten çıkarılacak kullanıcının idsi"} | {'result':1 => User UnFollowed Successfully, 'result':0  => Key or Token Failed} | UnFollow User. |
+
+## Get User Follow List
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| getUserFollowList.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb} | {'result':0  => Key or Token Failed} | Get User Follow List. |
 
 # NOTES
 ## Add Notes
