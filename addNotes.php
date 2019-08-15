@@ -52,6 +52,15 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
                         $urlImg['imgResult'] = $rand.'.'.$handle->image_src_type;
                         $dataImg['imageUrl'] = returnUrl().$urlImg['imgResult'];
                         $db->insert('notesimages',$dataImg);
+                        //UserProgress Coin Hediyesi
+                        $dataProgress = [
+                            "userId" => $userSelected['id'],
+                            "progressType" => "new_notes",
+                            "progressId" => 2,
+                            "coin" => 100,
+                            "money" => 0.3
+                        ];
+                        $db->insert('usersprogress',$dataProgress);
                         $results['result'] = 1;
                     } else {
                         $results['img'] = 26;

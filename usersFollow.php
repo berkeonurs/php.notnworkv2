@@ -24,6 +24,15 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         unset($data['userToken']);
         $data['userId'] = $userSelected['id'];
         $db->insert('usersfollow',$data);
+        //UserProgress Coin Hediyesi
+        $dataProgress = [
+            "userId" => $userSelected['id'],
+            "progressType" => "follow_user",
+            "progressId" => 3,
+            "coin" => 10,
+            "money" => 0
+        ];
+        $db->insert('usersprogress',$dataProgress);
         $results['result'] = 1;
     }
 }

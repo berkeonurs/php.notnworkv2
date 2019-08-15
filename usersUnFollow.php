@@ -26,6 +26,14 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         $db->where('userId',$userSelected['id']);
         $db->where('userFollowed',$userFollowed);
         $db->delete('usersfollow');
+        $dataProgress = [
+            "userId" => $userSelected['id'],
+            "progressType" => "unfollow_user",
+            "progressId" => 3,
+            "coin" => -10,
+            "money" => 0
+        ];
+        $db->insert('usersprogress',$dataProgress);
         $results['result'] = 1;
     }
 }
