@@ -11,6 +11,8 @@ notnwork WebService.
 
 [Get Discovery Notes](https://github.com/berkeonurs/notnworkv2#get-discovery-notes)
 
+[Download Notes](https://github.com/berkeonurs/notnworkv2#download-notes)
+
 # USER
 ## Create User
  
@@ -42,4 +44,10 @@ notnwork WebService.
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | getDiscNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteType':'Vize or Final', 'departmentID':'1'} | {'result':0  => Key or Token Failed} | Keşfet Bölüm Notu Değilse 'departmentId' Yollanmayacak!  |
+
+## Download Notes
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| downloadNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteId':'145'} | {'result':0  => Key or Token Failed, 'result':20 => Note Owner Download Failed, 'result':1 => Note Download Succesfully} | Download Notes. |
  
