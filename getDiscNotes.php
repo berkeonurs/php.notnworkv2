@@ -25,10 +25,19 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
     if ($userSelected['userToken'] == $userToken){
         unset($data['key']);
         unset($data['userToken']);
+        $sub = $db->subQuery();
+        $sub->where('userId',$userSelected['id']);
+        $sub->get('usersblocked',null,'userBlocked');
+
+        $sub2 = $db->subQuery();
+        $sub2->where('userBlocked',$userSelected['id']);
+        $sub2->get('usersblocked',null,'userId');
 
         $db->join('users u','n.userId=u.id','INNER');
         $db->join('notesimages i','n.noteId=i.noteId','INNER');
         $db->Where('noteType',$noteType);
+        $db->where (null, $sub, 'not exists');
+        $db->where (null, $sub2, 'not exists');
         $notesList = $db->get('notes n');
         $note = makeArray($notesList,'noteId',['id','imageUrl','noteId']);
         $results = $note;
