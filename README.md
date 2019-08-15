@@ -33,6 +33,8 @@ notnwork WebService.
 
 [Download Notes](https://github.com/berkeonurs/notnworkv2#download-notes)
 
+[Likes Notes](https://github.com/berkeonurs/notnworkv2#likes-notes)
+
 # USER
 ## Create User
  
@@ -131,3 +133,8 @@ notnwork WebService.
 | --- | --- | --- | --- | --- |
 | downloadNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteId':'145'} | {'result':0  => Key or Token Failed, 'result':20 => Note Owner Download Failed, 'result':1 => Note Download Succesfully} | Download Notes. |
  
+## Likes Notes
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| likesNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteId':'145', 'likeType':'like' or 'dislike'} | {'result':0  => Key or Token Failed, 'result':1 => Note Like or Dislike Succesfully} | Likes Notes. | 
