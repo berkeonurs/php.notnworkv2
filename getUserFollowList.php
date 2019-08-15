@@ -26,13 +26,13 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
 
         $db->join('users u','f.userFollowed=u.id','INNER');
         $db->where('userId',$userSelected['id']);
-        $userFollowerList = $db->get('usersfollow f');
+        $userFollowingList = $db->get('usersfollow f');
         $results['result'] = 1;
-        $results['followers'] = $userFollowerList;
+        $results['following'] = $userFollowingList;
         $db->join('users u','f.userId=u.id','INNER');
         $db->where('userFollowed',$userSelected['id']);
-        $userFollowingList = $db->get('usersfollow f');
-        $results['following'] = $userFollowingList;
+        $userFollowerList = $db->get('usersfollow f');
+        $results['followers'] = $userFollowerList;
 
 
 
