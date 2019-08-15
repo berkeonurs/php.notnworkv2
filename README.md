@@ -56,6 +56,12 @@ notnwork WebService.
 | --- | --- | --- | --- | --- |
 | getUserInfo.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb} | {'result':0  => Key or Token Failed} | Get User Info. |
 
+## Get Other User Info
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| getOtherUserInfo.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'userId':41} | {'result':0  => Key or Token Failed} | Get Other User Info. |
+
 ## Get User Download Notes
 
 | Route | HTTP Verb | POST body | Result | Description |
