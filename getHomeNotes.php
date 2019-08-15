@@ -21,7 +21,9 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         $userSelected['id'] = $v['id'];
     }
 
+
     if ($userSelected['userToken'] == $userToken){
+
         unset($data['key']);
         unset($data['userToken']);
         $data['userId'] = $userSelected['id'];
@@ -36,16 +38,19 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
             $userId = $userSelected['id'];
 
             //Notları Çek
-            $db->join('users u','n.userId=u.id','INNER');
-            $db->join('notesimages i','n.noteId=i.noteId','INNER');
-            $db->joinWhere('userId',$userFollowIdList);
-            $notesList = $db->get('notes n');
-            //$notesList = $db->rawQuery("SELECT * FROM notes INNER JOIN notesimages ON notes.noteId = notesimages.noteId  INNER JOIN users ON notes.userId = users.id WHERE userId IN (SELECT userFollowed FROM usersfollow WHERE userId=41)");
+//            $db->join('users u','n.userId=u.id','INNER');
+//            $db->join('notesimages i','n.noteId=i.noteId','INNER');
+//            $db->joinWhere('userId',$userFollowIdList);
+//            $notesList = $db->get('notes n');
+            $sorgu = "SELECT * FROM notes INNER JOIN notesimages ON notes.noteId = notesimages.noteId  INNER JOIN users ON notes.userId = users.id WHERE userId IN (SELECT userFollowed FROM usersfollow WHERE userId=$userId)";
+            $notesList = $db->rawQuery($sorgu);
 
             $note = makeArray($notesList,'noteId',['id','imageUrl','noteId']);
             $results = $note;
 
 
+        }else{
+            $results['result'] = 404; // Takip Ettiği kişi yok
         }
 
 
