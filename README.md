@@ -7,6 +7,8 @@ notnwork WebService.
 
 [Block User](https://github.com/berkeonurs/notnworkv2#block-user)
 
+[UnBlock User](https://github.com/berkeonurs/notnworkv2#unblock-user)
+
 [Get User Block List](https://github.com/berkeonurs/notnworkv2#get-user-block-list)
 
 [Add Notes](https://github.com/berkeonurs/notnworkv2#add-notes)
@@ -37,6 +39,12 @@ notnwork WebService.
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | usersBlock.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'userBlocked':"41"=>engellenen kullanıcının idsi"} | {'result':1 => User Blocked Successfully, 'result':0  => Key or Token Failed} | Block User. |
+
+## UnBlock User
+ 
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| usersUnBlock.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'userBlocked':"41"=>engellenen kullanıcının idsi"} | {'result':1 => User UnBlocked Successfully, 'result':0  => Key or Token Failed} | UnBlock User. |
 
 ## Get User Block List
 
