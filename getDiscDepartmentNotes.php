@@ -21,20 +21,27 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         $userSelected['userToken'] = $v['userToken'];
         $userSelected['id'] = $v['id'];
     }
-
     if ($userSelected['userToken'] == $userToken){
         unset($data['key']);
         unset($data['userToken']);
+        //Students Tablosu Sorgu
+        $db->where('userId',$userSelected['id']);
+        $studentSelectedArray = $db->get('students');
+        $studentSelected = [];
+        foreach ($studentSelectedArray as $key => $value){
+            $studentSelected['departmentId'] = $value['departmentId'];
+        }
 
         $db->join('users u','n.userId=u.id','INNER');
         $db->join('notesimages i','n.noteId=i.noteId','INNER');
         $db->Where('noteType',$noteType);
+        $db->Where('departmentId',$studentSelected['departmentId']);
         $notesList = $db->get('notes n');
         $note = makeArray($notesList,'noteId',['id','imageUrl','noteId']);
         $results = $note;
 
     }
 
-}
 
+}
 echo json_encode($results);

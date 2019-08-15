@@ -11,6 +11,8 @@ notnwork WebService.
 
 [Get Discovery Notes](https://github.com/berkeonurs/notnworkv2#get-discovery-notes)
 
+[Get Department Discovery Notes](https://github.com/berkeonurs/notnworkv2#get-department-discovery-notes)
+
 [Download Notes](https://github.com/berkeonurs/notnworkv2#download-notes)
 
 # USER
@@ -43,7 +45,13 @@ notnwork WebService.
 
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
-| getDiscNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteType':'Vize or Final', 'departmentID':'1'} | {'result':0  => Key or Token Failed} | Keşfet Bölüm Notu Değilse 'departmentId' Yollanmayacak!  |
+| getDiscNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteType':'Vize or Final'} | {'result':0  => Key or Token Failed} | Get Discovery Notes |
+
+## Get Department Discovery Notes
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| getDiscDepartmentNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteType':'Vize or Final'} | {'result':0  => Key or Token Failed} | Get Department Discovery Notes |
 
 ## Download Notes
 
