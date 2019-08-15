@@ -35,6 +35,8 @@ notnwork WebService.
 
 [Likes Notes](https://github.com/berkeonurs/notnworkv2#likes-notes)
 
+[Get Note Likes](https://github.com/berkeonurs/notnworkv2#get-note-likes)
+
 # USER
 ## Create User
  
@@ -138,3 +140,9 @@ notnwork WebService.
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | likesNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteId':'145', 'likeType':'like' or 'dislike'} | {'result':0  => Key or Token Failed, 'result':1 => Note Like or Dislike Succesfully} | Likes Notes. | 
+
+## Get Note Likes
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| getNoteLikes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteId':'145'} | {'result':0  => Key or Token Failed} | Get Note Likes Info. | 
