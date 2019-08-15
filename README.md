@@ -9,6 +9,8 @@ notnwork WebService.
 
 [Get User Download Notes](https://github.com/berkeonurs/notnworkv2#get-user-download-notes)
 
+[Get User Upload Notes](https://github.com/berkeonurs/notnworkv2#get-user-upload-notes)
+
 [Block User](https://github.com/berkeonurs/notnworkv2#block-user)
 
 [UnBlock User](https://github.com/berkeonurs/notnworkv2#unblock-user)
@@ -55,6 +57,12 @@ notnwork WebService.
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | getUserDownload.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb} | {'result':0  => Key or Token Failed} | Get User Download Notes. |
+
+## Get User Upload Notes
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| getUserUpload.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb} | {'result':0  => Key or Token Failed} | Get User Upload Notes. |
 
 ## Block User
  
