@@ -5,6 +5,8 @@ notnwork WebService.
 
 [Login User](https://github.com/berkeonurs/notnworkv2#login-user)
 
+[Get User Info](https://github.com/berkeonurs/notnworkv2#get-user-info)
+
 [Block User](https://github.com/berkeonurs/notnworkv2#block-user)
 
 [UnBlock User](https://github.com/berkeonurs/notnworkv2#unblock-user)
@@ -39,6 +41,12 @@ notnwork WebService.
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | loginUser.php | `POST` | {'key':'1453', 'userMail':berke@ogr.edu.tr, 'userPass':"123"} | {'result':1 => Active User, 'result':400 => Banned User, 'result':404 => Unknown User} | Login User. |
+
+## Get User Info
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| getUserInfo.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb} | {'result':0  => Key or Token Failed} | Get User Info. |
 
 ## Block User
  
