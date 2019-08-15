@@ -5,6 +5,8 @@ notnwork WebService.
 
 [Login User](https://github.com/berkeonurs/notnworkv2#login-user)
 
+[Block User](https://github.com/berkeonurs/notnworkv2#block-user)
+
 [Add Notes](https://github.com/berkeonurs/notnworkv2#add-notes)
 
 [Get Home Notes](https://github.com/berkeonurs/notnworkv2#get-home-notes)
