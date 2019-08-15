@@ -7,6 +7,8 @@ notnwork WebService.
 
 [Get User Info](https://github.com/berkeonurs/notnworkv2#get-user-info)
 
+[Get Other User Info](https://github.com/berkeonurs/notnworkv2#get-other-user-info)
+
 [Get User Download Notes](https://github.com/berkeonurs/notnworkv2#get-user-download-notes)
 
 [Get User Upload Notes](https://github.com/berkeonurs/notnworkv2#get-user-upload-notes)
