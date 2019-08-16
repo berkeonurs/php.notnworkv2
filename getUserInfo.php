@@ -27,7 +27,7 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         $db->join('department d','s.departmentId=d.departmentId','INNER');
         $db->join('university c','s.universityId=c.universityId','INNER');
         $db->where('id',$userSelected['id']);
-        $userInfo = $db->get('users u');
+        $userInfo = $db->get('users u',null,'u.userName,u.userLastName,u.userPhoto,u.userCreateDate,u.userLoginDate,u.userActive,s.studentId,s.userId,s.studentClass,s.universityId,s.departmentId,d.departmentName,c.universityName,c.universityPhoto');
         $results = $userInfo;
     }
 }

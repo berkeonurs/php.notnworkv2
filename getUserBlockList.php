@@ -25,7 +25,7 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
 
         $db->join('users u','b.userBlocked = u.id','INNER');
         $db->where('userId',$userSelected['id']);
-        $userBlockedList = $db->get('usersblocked b');
+        $userBlockedList = $db->get('usersblocked b',null,'b.userId,b.userBlocked,u.id,u.userName,u.userLastName,u.userPhoto');
         $results = $userBlockedList;
 
     }

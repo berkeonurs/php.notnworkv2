@@ -47,7 +47,7 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         $db->Where('departmentId',$studentSelected['departmentId']);
         $db->where (null, $sub, 'not exists');
         $db->where (null, $sub2, 'not exists');
-        $notesList = $db->get('notes n');
+        $notesList = $db->get('notes n',null,'n.noteId,n.userId,n.noteTitle,n.noteLesson,n.noteDesc,n.noteType,n.noteDate,n.noteTeacherListId,n.noteTeacherName,n.departmentId,n.noteActive,i.id,i.imageUrl,i.noteId,u.userName,u.userLastName,u.userPhoto');
         $note = makeArray($notesList,'noteId',['id','imageUrl','noteId']);
         $results = $note;
 
