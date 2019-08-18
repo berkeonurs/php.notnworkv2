@@ -33,11 +33,15 @@ notnwork WebService.
 
 [Get Department Discovery Notes](https://github.com/berkeonurs/notnworkv2#get-department-discovery-notes)
 
+[Get Note Info](https://github.com/berkeonurs/notnworkv2#get-note-info)
+
 [Download Notes](https://github.com/berkeonurs/notnworkv2#download-notes)
 
 [Likes Notes](https://github.com/berkeonurs/notnworkv2#likes-notes)
 
 [Get Note Likes](https://github.com/berkeonurs/notnworkv2#get-note-likes)
+
+[Add Product](https://github.com/berkeonurs/notnworkv2#add-product)
 
 # USER
 ## Create User
@@ -160,3 +164,9 @@ notnwork WebService.
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | getNoteLikes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteId':'145'} | {'result':0  => Key or Token Failed} | Get Note Likes Info. | 
+
+# Product
+## Add Product
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| addProduct.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'ProductTitle':"Hesap Makinesi", 'productPrice':"10", 'productDesc':"Hesap Makinesi", 'noteType':"Hesap Makinesi", $_FILES['img']} | {'result':1 => Product Added Succesfully, 'result':26 => Not Image, 'result':33 => No Images Selected, 'result':0  => Key or Token Failed} | Add Product. |
