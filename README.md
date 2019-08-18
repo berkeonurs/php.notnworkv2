@@ -137,6 +137,12 @@ notnwork WebService.
 | --- | --- | --- | --- | --- |
 | getDiscDepartmentNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteType':'Vize or Final'} | {'result':0  => Key or Token Failed} | Get Department Discovery Notes |
 
+## Get Note Info
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| getNoteInfo.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteId':'139'} | {'result':0  => Key or Token Failed} | Get Note Info |
+
 ## Download Notes
 
 | Route | HTTP Verb | POST body | Result | Description |

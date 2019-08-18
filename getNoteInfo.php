@@ -30,7 +30,16 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         $db->Where('noteId',$noteId);
         $notesList = $db->get('notes n',null,'n.noteId,n.userId,n.noteTitle,n.noteLesson,n.noteDesc,n.noteType,n.noteDate,n.noteTeacherListId,n.noteTeacherName,n.departmentId,n.noteActive,i.id,i.imageUrl,i.notesId,u.userName,u.userLastName,u.userPhoto');
         $note = makeArray($notesList,'noteId',['id','imageUrl','noteId']);
+        //Notes Watch
+        $dataWatch = [];
+        $dataWatch['userId'] = $userSelected['id'];
+        $dataWatch['noteId'] = $noteId;
+        $db->insert('noteswatch',$dataWatch);
+        $db->where('noteId',$noteId);
+        $db->get('noteswatch');
+        $notesHit = $db->count;
         $results = $note;
+        $results['hit'] = $notesHit;
     }
 }
 echo json_encode($results);
