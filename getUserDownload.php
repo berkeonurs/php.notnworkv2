@@ -27,7 +27,7 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
 
 
         $db->join('notes n','d.noteId=n.noteId','INNER');
-        $db->join('notesimages i','n.noteId=i.noteId','INNER');
+        $db->join('notesimages i','n.noteId=i.notesId','INNER');
         $db->where('usersId',$userSelected['id']);
         $getDownloadNotes = $db->get('notesdownload d');
         $downloadNote = makeArray($getDownloadNotes,'noteId',['id','imageUrl','noteId']);

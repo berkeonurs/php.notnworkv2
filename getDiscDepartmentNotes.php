@@ -42,12 +42,12 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
 
 
         $db->join('users u','n.userId=u.id','INNER');
-        $db->join('notesimages i','n.noteId=i.noteId','INNER');
+        $db->join('notesimages i','n.noteId=i.notesId','INNER');
         $db->Where('noteType',$noteType);
         $db->Where('departmentId',$studentSelected['departmentId']);
         $db->where (null, $sub, 'not exists');
         $db->where (null, $sub2, 'not exists');
-        $notesList = $db->get('notes n',null,'n.noteId,n.userId,n.noteTitle,n.noteLesson,n.noteDesc,n.noteType,n.noteDate,n.noteTeacherListId,n.noteTeacherName,n.departmentId,n.noteActive,i.id,i.imageUrl,i.noteId,u.userName,u.userLastName,u.userPhoto');
+        $notesList = $db->get('notes n',null,'n.noteId,n.userId,n.noteTitle,n.noteLesson,n.noteDesc,n.noteType,n.noteDate,n.noteTeacherListId,n.noteTeacherName,n.departmentId,n.noteActive,i.id,i.imageUrl,i.notesId,u.userName,u.userLastName,u.userPhoto');
         $note = makeArray($notesList,'noteId',['id','imageUrl','noteId']);
         $results = $note;
 

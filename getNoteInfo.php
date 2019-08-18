@@ -4,7 +4,7 @@ include 'lib/functions.php';
 
 $key= filter_input(INPUT_POST, 'key');
 $userToken = filter_input(INPUT_POST, 'userToken');
-$noteType = filter_input(INPUT_POST, 'noteType');
+$noteId = filter_input(INPUT_POST, 'noteId');
 $results = ['result'=>0];
 
 if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)) {
@@ -25,25 +25,12 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
     if ($userSelected['userToken'] == $userToken){
         unset($data['key']);
         unset($data['userToken']);
-        $sub = $db->subQuery();
-        $sub->where('userId',$userSelected['id']);
-        $sub->get('usersblocked',null,'userBlocked');
-
-        $sub2 = $db->subQuery();
-        $sub2->where('userBlocked',$userSelected['id']);
-        $sub2->get('usersblocked',null,'userId');
-
         $db->join('users u','n.userId=u.id','INNER');
         $db->join('notesimages i','n.noteId=i.notesId','INNER');
-        $db->Where('noteType',$noteType);
-        $db->where (null, $sub, 'not exists');
-        $db->where (null, $sub2, 'not exists');
+        $db->Where('noteId',$noteId);
         $notesList = $db->get('notes n',null,'n.noteId,n.userId,n.noteTitle,n.noteLesson,n.noteDesc,n.noteType,n.noteDate,n.noteTeacherListId,n.noteTeacherName,n.departmentId,n.noteActive,i.id,i.imageUrl,i.notesId,u.userName,u.userLastName,u.userPhoto');
         $note = makeArray($notesList,'noteId',['id','imageUrl','noteId']);
         $results = $note;
-
     }
-
 }
-
 echo json_encode($results);
