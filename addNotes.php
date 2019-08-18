@@ -33,7 +33,7 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
             }
 
 
-            $dataImg['noteId'] = $id;
+            $dataImg['notesId'] = $id;
             foreach ($images as $image){
 
                 $handle = new Upload($image);
