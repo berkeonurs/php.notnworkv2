@@ -41,6 +41,8 @@ notnwork v2.0 WebService.
 
 [Get Note Likes](https://github.com/berkeonurs/notnworkv2#get-note-likes)
 
+[Get Archive Note Info](https://github.com/berkeonurs/notnworkv2#get-archive-note)
+
 [Add Product](https://github.com/berkeonurs/notnworkv2#add-product)
 
 [Get Discovery Product](https://github.com/berkeonurs/notnworkv2#get-discovery-product)
@@ -166,6 +168,12 @@ notnwork v2.0 WebService.
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | getNoteLikes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteId':'145'} | {'result':0  => Key or Token Failed} | Get Note Likes Info. | 
+
+## Get Achive Note
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| getArchiveNotes.php | `POST` | {'key':'1453', 'universityId':'1'} | {'result':0  => Key Failed} | Get Archive Note Info |
 
 # Product
 ## Add Product

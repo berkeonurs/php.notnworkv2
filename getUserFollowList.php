@@ -29,10 +29,12 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         $userFollowingList = $db->get('usersfollow f',null,'f.userId,f.userFollowed,u.id,u.userName,u.userLastName,u.userPhoto');
         $results['result'] = 1;
         $results['following'] = $userFollowingList;
+        $results['following']['count'] = $db->count;
         $db->join('users u','f.userId=u.id','INNER');
         $db->where('userFollowed',$userSelected['id']);
         $userFollowerList = $db->get('usersfollow f',null,'f.userId,f.userFollowed,u.id,u.userName,u.userLastName,u.userPhoto');
         $results['followers'] = $userFollowerList;
+        $results['followers']['count'] = $db->count;
 
 
 

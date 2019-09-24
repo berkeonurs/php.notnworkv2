@@ -42,7 +42,7 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
 //            $db->join('notesimages i','n.noteId=i.noteId','INNER');
 //            $db->joinWhere('userId',$userFollowIdList);
 //            $notesList = $db->get('notes n');
-            $sorgu = "SELECT notes.noteId,notes.userId,notes.noteTitle,notes.noteLesson,notes.noteDesc,notes.noteType,notes.noteDate,notes.noteTeacherListId,notes.noteTeacherName,notes.departmentId,notes.noteActive,notesimages.id,notesimages.imageUrl,notesimages.notesId,users.userName,users.userLastName,users.userPhoto FROM notes INNER JOIN notesimages ON notes.noteId = notesimages.notesId  INNER JOIN users ON notes.userId = users.id WHERE userId IN (SELECT userFollowed FROM usersfollow WHERE userId=$userId)";
+            $sorgu = "SELECT notes.noteId,notes.userId,notes.noteTitle,notes.noteLesson,notes.noteDesc,notes.noteType,notes.noteDate,notes.noteTeacherListId,notes.noteTeacherName,notes.departmentId,notes.noteActive,notesimages.id,notesimages.imageUrl,notesimages.notesId,users.userName,users.userLastName,users.userPhoto,department.departmentName FROM notes INNER JOIN department ON notes.departmentId = department.departmentId INNER JOIN notesimages ON notes.noteId = notesimages.notesId  INNER JOIN users ON notes.userId = users.id WHERE userId IN (SELECT userFollowed FROM usersfollow WHERE userId=$userId)";
             $notesList = $db->rawQuery($sorgu);
 
             $note = makeArray($notesList,'noteId',['id','imageUrl','noteId']);
