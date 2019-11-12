@@ -47,6 +47,9 @@ if ($key == '1453' && $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken))
                     /* Resim Yükleme İzni */
                     $handle->allowed = array('image/*');
 
+                    /* Resim Uzantısını JPG Yap */
+                    $handle->image_convert = 'jpg';
+
                     /* Resmi İşle */
                     $handle->Process("upload/");
                     if ($handle->processed) {
