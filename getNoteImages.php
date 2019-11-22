@@ -3,6 +3,7 @@ require_once 'config.php';
 include 'lib/functions.php';
 $key= filter_input(INPUT_POST, 'key');
 $userToken = filter_input(INPUT_POST, 'userToken');
+$noteId = filter_input(INPUT_POST, 'noteId');
 $results = ['result'=>0];
 
 if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)) {
@@ -10,7 +11,6 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
     $db = getDbInstance();
 
     $data = array_filter($_POST);
-
     //User Tablosu Sorgu
     $db->where('userToken', $userToken);
     $userSelectedArray = $db->get('users');
@@ -24,18 +24,10 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         unset($data['key']);
         unset($data['userToken']);
 
-//        $db->join('notes n','d.notesId=n.noteId','INNER');
-//        $db->where('d.usersId',$userSelected['id']);
-//        $getDownloadNotes = $db->get('notesdownload d');
-//        $results= $getDownloadNotes;
-
-
-        $db->join('notes n','d.notesId=n.noteId','INNER');
-        $db->join('notesimages i','n.noteId=i.notesId','INNER');
-        $db->where('d.usersId',$userSelected['id']);
-        $getDownloadNotes = $db->get('notesdownload d');
-        $downloadNote = makeArray($getDownloadNotes,'noteId',['id','imageUrl','noteId']);
-        $results = $downloadNote;
+        $db->where('notesId',$noteId);
+        $noteImageArray = $db->get('notesimages',null,'imageUrl');
+        $results = $noteImageArray;
     }
 }
+
 echo json_encode($results);

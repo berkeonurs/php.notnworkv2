@@ -24,11 +24,12 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         unset($data['key']);
         unset($data['userToken']);
 
-        $db->join('notesimages i','n.noteId=i.notesId');
-        $db->where('userId',$userSelected['id']);
-        $uploadNote = $db->get('notes n');
-        $getUploadNote =  makeArray($uploadNote,'noteId',['id','imageUrl','noteId']);
-        $results = $getUploadNote;
+
+        $db->join('notesimages i','n.noteId=i.notesId','INNER');
+        $db->where('n.userId',$userSelected['id']);
+        $getUploadNote = $db->get('notes n');
+        $uploadNote = makeArray($getUploadNote,'noteId',['id','imageUrl','noteId']);
+        $results = $uploadNote;
 
     }
 }
