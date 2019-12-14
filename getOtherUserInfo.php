@@ -29,7 +29,21 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         $db->join('university c','s.universityId=c.universityId','INNER');
         $db->where('id',$userId);
         $userInfo = $db->get('users u',null,'u.userName,u.userLastName,u.userPhoto,u.userCreateDate,s.studentId,s.userId,s.studentClass,s.universityId,s.departmentId,d.departmentName,c.universityName,c.universityPhoto');
-        $results = $userInfo;
+        $results['info'] = $userInfo;
+
+        $db->join('users u','f.userFollowed=u.id','LEFT');
+        $db->where('f.userId',$userId);
+        $following = $db->get('usersfollow f');
+        $results['following'] = $following;
+        $results['following']['count'] = $db->count;
+
+        $db->join('users u','f.userId=u.id','LEFT');
+        $db->where('f.userFollowed',$userId);
+        $followers = $db->get('usersfollow f');
+        $results['followers'] = $followers;
+        $results['followers']['count'] = $db->count;
+
+        $results['result'] = 1;
     }
 }
 echo json_encode($results);
