@@ -139,11 +139,23 @@ notnwork v2.0 WebService.
 | --- | --- | --- | --- | --- |
 | getDiscNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteType':'Vize or Final'} | {'result':0  => Key or Token Failed} | Get Discovery Notes |
 
+## Get 2 Discovery Notes
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| get2DiscNotes.php | `GET` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteType':'Vize or Final', 'page':'pagenumber'} | {'result':0  => Key or Token Failed} | Get Discovery Notes |
+
 ## Get Department Discovery Notes
 
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | getDiscDepartmentNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteType':'Vize or Final'} | {'result':0  => Key or Token Failed} | Get Department Discovery Notes |
+
+## Get 2 Department Discovery Notes
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| get2DiscDepartmentNotes.php | `GET` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'noteType':'Vize or Final', 'page':'pagenumber'} | {'result':0  => Key or Token Failed} | Get Department Discovery Notes |
 
 ## Get Note Info
 
