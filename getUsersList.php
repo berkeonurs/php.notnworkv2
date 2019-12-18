@@ -34,34 +34,63 @@ if ($key == '1453'  && isset($userToken)) {
 
         $userId = $userSelected['id'];
         $page=$_GET['page'];
-        //Followed
-        $sub = $db->subQuery();
-        $sub->where('userId',$userId);
-        $sub->get('usersfollow',null,'userFollowed');
+//        //Followed
+//        $sub = $db->subQuery();
+//        $sub->where('userId',$userId);
+//        $sub->get('usersfollow',null,'userFollowed');
+//
+//
+//        $db->where('u.id',$sub,'in');
+//        $db->pageLimit = 10;
+//        $userArray['followed'] =$db->arraybuilder()->paginate("users u", $page);
+//
+//        //Not Followed
+//        $sub2 = $db->subQuery();
+//        $sub2->where('userId',$userId);
+//        $sub2->get('usersfollow',null,'userFollowed');
+
+        if (isset($_GET['all'])){
+            //Kendi Profili Görüntülenmeme
+            $sub3 = $db->subQuery();
+            $sub3->where('id',$userId);
+            $sub3->get('users',null,'id');
+
+            //Sadece kendi üniversitesindeki üyeler
+            $sub = $db->subQuery();
+            $sub->where('universityId',$studentSelected['universityId']);
+            $sub->get('students',null,'userId');
 
 
-        $db->where('u.id',$sub,'in');
-        $db->pageLimit = 10;
-        $userArray['followed'] =$db->arraybuilder()->paginate("users u", $page);
+//
+//        $db->where('u.id',$sub2,'not in');
+            $db->where('u.id',$sub,'in');
+            $db->where('u.id',$sub3,'not in');
+            $userArray = $db->get('users u');
 
-        //Not Followed
-        $sub2 = $db->subQuery();
-        $sub2->where('userId',$userId);
-        $sub2->get('usersfollow',null,'userFollowed');
+            $results = $userArray;
+        }else{
+            //Kendi Profili Görüntülenmeme
+            $sub3 = $db->subQuery();
+            $sub3->where('id',$userId);
+            $sub3->get('users',null,'id');
 
-        //Kendi Profili Görüntülenmeme
-        $sub3 = $db->subQuery();
-        $sub3->where('id',$userId);
-        $sub3->get('users',null,'id');
+            //Sadece kendi üniversitesindeki üyeler
+            $sub = $db->subQuery();
+            $sub->where('universityId',$studentSelected['universityId']);
+            $sub->get('students',null,'userId');
 
 
+//
+//        $db->where('u.id',$sub2,'not in');
+            $db->where('u.id',$sub,'in');
+            $db->where('u.id',$sub3,'not in');
+            $db->pageLimit = 10;
+            $userArray = $db->arraybuilder()->paginate("users u", $page);
 
-        $db->where('u.id',$sub2,'not in');
-        $db->where('u.id',$sub3,'not in');
-        $db->pageLimit = 10;
-        $userArray['notfollowed'] = $db->arraybuilder()->paginate("users u", $page);
+            $results = $userArray;
+        }
 
-        $results = $userArray;
+
     }
 }
 echo json_encode($results);
