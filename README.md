@@ -120,6 +120,12 @@ notnwork v2.0 WebService.
 | --- | --- | --- | --- | --- |
 | getUserFollowList.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb} | {'result':0  => Key or Token Failed} | Get User Follow List. |
 
+## Get User List
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| getUsersList.php | `GET` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'page':'pagenumber'} | {'result':0  => Key or Token Failed} | Get User Info. |
+
 # NOTES
 ## Add Notes
 

@@ -49,6 +49,7 @@ if ($key == '1453' && isset($userToken)) {
             $sub->where('userId',$userId);
             $sub->get('usersfollow',null,'userFollowed');
 
+            $db->orderBy('n.noteId','DESC');
             $db->groupBy('n.noteId');
             $db->join('department d','n.departmentId=d.departmentId','INNER');
             $db->join('notesimages i','n.noteId=i.notesId','INNER');
