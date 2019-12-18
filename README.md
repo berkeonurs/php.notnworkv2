@@ -133,6 +133,12 @@ notnwork v2.0 WebService.
 | --- | --- | --- | --- | --- |
 | getHomeNotes.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb} | {'result':0  => Key or Token Failed, 'result':404 => Doesn't Follow Any Users} | Get Home Notes. |
 
+## Get 2 Home Notes
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| get2HomeNotes.php | `GET` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'page':'pagenumber'} | {'result':0  => Key or Token Failed, 'result':404 => Doesn't Follow Any Users} | Get Home Notes. |
+
 ## Get Discovery Notes
 
 | Route | HTTP Verb | POST body | Result | Description |
