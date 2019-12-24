@@ -25,6 +25,8 @@ notnwork v2.0 WebService.
 
 [Change Password](https://github.com/berkeonurs/notnworkv2#change-password)
 
+[Update Profile Photo](https://github.com/berkeonurs/notnworkv2#update-profile-photo)
+
 [Get User Follow List](https://github.com/berkeonurs/notnworkv2#get-user-follow-list)
 
 [Add Notes](https://github.com/berkeonurs/notnworkv2#add-notes)
@@ -133,6 +135,12 @@ notnwork v2.0 WebService.
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | userChangePass.php | `GET` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'oldPass':'eski şifre', 'newPass':'yenişifre'} | {'result':0  => Key or Token Failed, 'result':40 => Eski Şifre Doğru Değil, 'result':500 => Database Hatası, 'result':1 => Şifre Değiştirme Başarılı} | User Change Password. |
+
+## Update Profile Photo
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| userUpdatePhoto.php | `GET` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'img[]':'base64 img'} | {'result':0  => Key or Token Failed, 'result':26 => Gelen Resim Değil, 'result':33 => Resim Seçilmedi, 'result':1 => Fotoğraf Güncelleme Başarılı} | Update Profile Photo. |
 
 # NOTES
 ## Add Notes

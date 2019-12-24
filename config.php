@@ -26,7 +26,7 @@ function getDbInstance() {
 }
 
 function returnUrl(){
-    return 'https://notnwork.com/notnworkv2/upload/';
+    return 'https://notnwork.com/nnwv2ws/upload/';
 }
 
 function sendMail($userMail,$userName,$id,$mailToken){
