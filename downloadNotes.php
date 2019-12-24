@@ -2,7 +2,7 @@
 require_once 'config.php';
 $key= filter_input(INPUT_POST, 'key');
 $userToken = filter_input(INPUT_POST, 'userToken');
-$noteId = filter_input(INPUT_POST, 'noteId');
+$noteId = filter_input(INPUT_POST, 'notesId');
 $results = ['result'=>0];
 
 if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)) {
@@ -35,7 +35,7 @@ if ($key == '1453' &&  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($userToken)
         }else{
             unset($data['key']);
             unset($data['userToken']);
-            $data['userId'] = $userSelected['id'];
+            $data['usersId'] = $userSelected['id'];
             $db->insert('notesdownload',$data);
             $results['result'] = 1;
         }
