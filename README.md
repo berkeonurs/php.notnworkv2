@@ -51,6 +51,8 @@ notnwork v2.0 WebService.
 
 [Get All Departments List](https://github.com/berkeonurs/notnworkv2#get-all-departments-list)
 
+[Delete Note](https://github.com/berkeonurs/notnworkv2#delete-note)
+
 [Add Product](https://github.com/berkeonurs/notnworkv2#add-product)
 
 [Get Discovery Product](https://github.com/berkeonurs/notnworkv2#get-discovery-product)
@@ -236,6 +238,12 @@ notnwork v2.0 WebService.
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | getAllDepartments.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb} | {'result':0  => Key or Token Failed} | Get All Departments List. | 
+
+## Delete Note
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| deleteNote.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb,'noteId':'silinecek notun idsi'} | {'result':0  => Key or Token Failed, 'result':1 => Note Delete Successfully} | Delete Note. | 
 
 # Product
 ## Add Product
