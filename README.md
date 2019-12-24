@@ -23,6 +23,8 @@ notnwork v2.0 WebService.
 
 [UnFollow User](https://github.com/berkeonurs/notnworkv2#unfollow-user)
 
+[Change Password](https://github.com/berkeonurs/notnworkv2#change-password)
+
 [Get User Follow List](https://github.com/berkeonurs/notnworkv2#get-user-follow-list)
 
 [Add Notes](https://github.com/berkeonurs/notnworkv2#add-notes)
@@ -125,6 +127,12 @@ notnwork v2.0 WebService.
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | getUsersList.php | `GET` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'page':'pagenumber'} | {'result':0  => Key or Token Failed} | Get User Info. |
+
+## Change Password
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| userChangePass.php | `GET` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'oldPass':'eski şifre', 'newPass':'yenişifre'} | {'result':0  => Key or Token Failed, 'result':40 => Eski Şifre Doğru Değil, 'result':500 => Database Hatası, 'result':1 => Şifre Değiştirme Başarılı} | User Change Password. |
 
 # NOTES
 ## Add Notes
