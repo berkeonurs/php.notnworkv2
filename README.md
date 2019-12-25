@@ -29,6 +29,8 @@ notnwork v2.0 WebService.
 
 [Get User Wallet Info](https://github.com/berkeonurs/notnworkv2#get-user-wallet-info)
 
+[User Department Change](https://github.com/berkeonurs/notnworkv2#user-department-change)
+
 [Get User Follow List](https://github.com/berkeonurs/notnworkv2#get-user-follow-list)
 
 [Add Notes](https://github.com/berkeonurs/notnworkv2#add-notes)
@@ -140,19 +142,25 @@ notnwork v2.0 WebService.
 
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
-| userChangePass.php | `GET` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'oldPass':'eski şifre', 'newPass':'yenişifre'} | {'result':0  => Key or Token Failed, 'result':40 => Eski Şifre Doğru Değil, 'result':500 => Database Hatası, 'result':1 => Şifre Değiştirme Başarılı} | User Change Password. |
+| userChangePass.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'oldPass':'eski şifre', 'newPass':'yenişifre'} | {'result':0  => Key or Token Failed, 'result':40 => Eski Şifre Doğru Değil, 'result':500 => Database Hatası, 'result':1 => Şifre Değiştirme Başarılı} | User Change Password. |
 
 ## Update Profile Photo
 
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
-| userUpdatePhoto.php | `GET` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'img[]':'base64 img'} | {'result':0  => Key or Token Failed, 'result':26 => Gelen Resim Değil, 'result':33 => Resim Seçilmedi, 'result':1 => Fotoğraf Güncelleme Başarılı} | Update Profile Photo. |
+| userUpdatePhoto.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'img[]':'base64 img'} | {'result':0  => Key or Token Failed, 'result':26 => Gelen Resim Değil, 'result':33 => Resim Seçilmedi, 'result':1 => Fotoğraf Güncelleme Başarılı} | Update Profile Photo. |
 
 ## Get User Wallet Info
 
 | Route | HTTP Verb | POST body | Result | Description |
 | --- | --- | --- | --- | --- |
 | getUserWallet.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb} | {'result':0  => Key or Token Failed} | Get User Wallet Info. |
+
+## User Department Change
+
+| Route | HTTP Verb | POST body | Result | Description |
+| --- | --- | --- | --- | --- |
+| userUpdateDep.php | `POST` | {'key':'1453', 'userToken':5ebe96fc8d7e896f3b15adbe2941b0fb, 'departmentId':'bölüm id'} | {'result':0  => Key or Token Failed} | User Department Change. |
 
 # NOTES
 ## Add Notes
