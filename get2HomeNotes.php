@@ -56,7 +56,7 @@ if ($key == '1453' && isset($userToken)) {
             $db->join('users u','n.userId=u.id','INNER');
             $db->where('n.userId',$sub,'in');
             $db->where('n.universityId',$studentUniversityId);
-            $db->pageLimit = 10;
+            $db->pageLimit = 3;
             $notesList = $db->arraybuilder()->paginate("notes n", $page);
             $note = makeArray($notesList,'noteId',['id','imageUrl','noteId']);
             $results = $note;

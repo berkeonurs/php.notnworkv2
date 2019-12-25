@@ -51,7 +51,7 @@ if ($key == '1453' && $_SERVER['REQUEST_METHOD'] == 'POST'){
         unset($dataStudent['userToken']);
         if ($which == 'student'){
             $university = array_search($mailCheck,$mailList);
-            $dataStudent['userID'] = $id;
+            $dataStudent['userId'] = $id;
             $dataStudent['universityId'] = $university;
             unset($dataStudent['which']);
             // Student Tablosuna Insert
