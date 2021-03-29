@@ -15,7 +15,7 @@ include "lib/class.phpmailer.php";
 define('DB_HOST', "localhost");
 define('DB_USER', "root");
 define('DB_PASSWORD', "");
-define('DB_NAME', "notnworkv2");
+define('DB_NAME', "");
 
 
 /**
@@ -34,12 +34,12 @@ function sendMail($userMail,$userName,$id,$mailToken){
     $mail->IsSMTP();
     $mail->SMTPAuth = true;
     $mail->SMTPDebug  = 1;
-    $mail->Host = 'srvc75.turhost.com';
+    $mail->Host = '';
     $mail->Port = 465;
     $mail->SMTPSecure = 'ssl';
-    $mail->Username = 'info@notnwork.com';
-    $mail->Password = 'lmG3$S^N],J]';
-    $mail->SetFrom($mail->Username, 'notnwork');
+    $mail->Username = '';
+    $mail->Password = '';
+    $mail->SetFrom($mail->Username, '');
     $mail->AddAddress($userMail,$userName);
     $mail->CharSet = 'UTF-8';
     $mail->Subject = 'notnwork Öğrenci Mail Onay';
